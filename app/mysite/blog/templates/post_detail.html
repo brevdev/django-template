@@ -1,5 +1,15 @@
-<h1>{{ post.title }}</h1>
+{% extends 'base.html' %}
 
-{{ post.body }}
+{% block title %}{{ post.title }} - My Blog{% endblock %}
 
-<a href="{% url 'post_list' %}">Index page</a>
+{% block content %}
+  <div>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.created_at }}</p>
+    <p>{{ post.body|linebreaksbr }}</p>
+  </div>
+
+  <div>
+    <a href="{% url 'post_list' %}">Back to Index</a>    
+  </div>
+{% endblock %}

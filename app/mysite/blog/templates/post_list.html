@@ -1,7 +1,17 @@
-<h1>My blog</h1>
+{% extends 'base.html' %}
 
-<ul>
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
   {% for post in posts %}
-    <li><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></li>
+    <div>
+      <h2>
+        <a href="{% url 'post_detail' post.id %}">
+          {{ post.title }}
+        </a>  
+      </h2>
+      <p>{{ post.created_at }}</p>
+      <p>{{ post.body }}</p>
+    </div>
   {% endfor %}
-</ul>
+{% endblock %}
