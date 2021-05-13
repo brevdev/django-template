@@ -3,13 +3,17 @@
 {% block title %}{{ post.title }} - My Blog{% endblock %}
 
 {% block content %}
-  <div>
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.created_at }}</p>
-    <p>{{ post.body|linebreaksbr }}</p>
-  </div>
+  <div class="card p-4">
+    <div class="card-body">
+      <h2 class="card-title">
+        {{ post.title }}
+      </h2>
+      <h6 class="card-subtitle mb-3 text-muted">
+        {{ post.created_at }}
+      </h6>
+      <p>{{ post.body|linebreaksbr|urlize }}</p>  
 
-  <div>
-    <a href="{% url 'post_list' %}">Back to Index</a>    
+      <a href="{% url 'post_list' %}">Back to Index</a>    
+    </div>
   </div>
 {% endblock %}
