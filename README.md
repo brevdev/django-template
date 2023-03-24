@@ -1,5 +1,7 @@
 # Django Template with Docker/Docker Compose
 
+Much of this work was borrowed from Kei Yagi. We've just refactored it slightly to work as Brev template.
+
 ## Environment
 
 - Python ... 3.10.0a7
@@ -27,7 +29,14 @@ when there is the following warning during the build, run `python manage.py migr
 You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
 ```
 
-3. You can see the result in `http://localhost:8080` of your browser.
+3. You can see the result in `http://localhost:8080` of your browser. Make sure you forward the port in VSCode...
+
+## To run fully outside of docker compose:
+
+```
+cd app/mysite
+python manage.py runserver 0.0.0.0:8000
+```
 
 ## How to create Django project and app
 
